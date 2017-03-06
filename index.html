@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirect via index.html</title>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+  <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body class="fill">
+
+  <div class="content">
+    <div class="ui inverted teal vertical masthead center aligned basic segment">
+      <div class="ui container site-header">
+        <h1>Redirect via <code>index.html</code></h1>
+        <h3>Get <code>index.html</code> to re-direct.</h3>
+      </div>
+    </div>
+
+    <section class="ui container" id="app">
+      <div class="ui basic segment">
+        <p>If you ever have wanted to redirect to a different page, but didn't have control
+        over the web-server, then you you have come to the right place.
+        </p>
+        <p>
+        Here you can generate a comprehensive <code>index.html</code> that you can download and keep on your site's root to redirect to the desired page.
+        The <code>index.html</code> is modelled after this <a class="ui red" href="http://stackoverflow.com/a/5411601/987185"><i class="stack overflow icon"></i> Stack Overflow answer</a>.
+        </p>
+      </div>
+
+      <div class="ui form">
+        <div class="field">
+          <label>Redirect to:</label>
+          <div class="ui left icon input">
+            <input type="url" value="http://example.com" v-model="url">
+            <i class="linkify icon"></i>
+          </div>
+        </div>
+
+        <div class="field">
+          <label><code>index.html</code></label>
+          <textarea id="indexHTML"
+                    rows="16"
+                    readonly
+                    class="code-html"
+                    v-on:click="selectIndexHTML">
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="refresh" content="1; url={{url}}">
+        <script type="text/javascript">
+            window.location.href = "{{url}}"
+        </script>
+        <title>Page Redirection</title>
+    </head>
+    <body>
+        If you are not redirected automatically,
+        follow this <a href="{{url}}">link</a>.
+    </body>
+</html>
+          </textarea>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="ui inverted teal center aligned basic segment footer">
+    <div class="ui inverted container">
+      Made by <a class="ui small teal label" href="https://musicallyut.in">musically-ut</a> using <a class="ui small teal label" href="http://vuejs.org">Vue.js</a>
+    </div>
+  </section>
+
+  <a href="https://github.com/musically-ut/index-redirect"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
+
+  <script src="main.js"></script>
+</body>
+</html>

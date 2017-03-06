@@ -1,0 +1,23 @@
+.masthead .site-header {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+body.fill {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body.fill .content {
+    flex: 1;
+}
+
+body.fill .footer {
+    flex: 0;
+    margin-bottom: 0;
+}
+
+textarea.code-html {
+    font-family: monospace;
+}
